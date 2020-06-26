@@ -8,6 +8,10 @@ object dataService {
         com.example.coderswag.models.category("HOODIES", "hoodieimage"),
         com.example.coderswag.models.category("HATS", "hatimage"),
         com.example.coderswag.models.category("DIGITAL", "digitalgoodsimage")
+        //com.example.coderswag.models.category("SHIRTS", "shirtimage")
+        //com.example.coderswag.models.category("HOODIES", "hoodieimage"),
+        //com.example.coderswag.models.category("HATS", "hatimage"),
+        //com.example.coderswag.models.category("DIGITAL", "digitalgoodsimage")
     )
     val hats = listOf(
         product("Devslopes Graphic Beanie", "$18", "hat1"),
