@@ -1,5 +1,6 @@
 package com.example.coderswag.controllers
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.ContactsContract
@@ -11,6 +12,7 @@ import com.example.coderswag.adapters.categoryAdapter
 import com.example.coderswag.adapters.categoryRecycleAdapter
 import com.example.coderswag.models.category
 import com.example.coderswag.services.dataService
+import com.example.coderswag.utilities.EXTRA_PRODUCT
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -18,7 +20,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        categoryAdapter = categoryRecycleAdapter(this, dataService.categories)
+        categoryAdapter = categoryRecycleAdapter(this, dataService.categories) {category ->
+            val productAct = Intent(this, ProductActivity::class.java)
+            productAct.putExtra(EXTRA_PRODUCT, category.title)
+            startActivity(productAct)
+        }
         categoryRecyclerView.adapter = categoryAdapter
         val layoutManager = LinearLayoutManager(this)
         categoryRecyclerView.layoutManager = layoutManager
