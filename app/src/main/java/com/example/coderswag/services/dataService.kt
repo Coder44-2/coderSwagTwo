@@ -1,5 +1,6 @@
 package com.example.coderswag.services
 
+import android.widget.Toast
 import com.example.coderswag.models.product
 
 object dataService {
@@ -32,4 +33,13 @@ object dataService {
         product("Devslopes Hustle", "$22", "shirt4"),
         product("Kickflip Studios", "$18", "shirt5")
     )
+    val digitalGoods = listOf<product>()
+    fun getProducts(category: String) : List<product> {
+        return when(category) {
+            "SHIRTS" -> shirts
+            "HATS" -> hats
+            "HOODIES" -> hoodie
+            else -> shirts
+        }
+    }
 }
